@@ -9,7 +9,9 @@
     "build:script": "rollup --no-treeshake -c rollup.config.ts",
     "build:ui": "node build.ui.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "push": "npm run lint && npm run build && clasp push -f",
+    "open": "clasp open-script"
   },
   "dependencies": {
     "react": "^19.0.0",
