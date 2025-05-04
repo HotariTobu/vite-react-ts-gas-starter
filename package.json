@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
+    "@google/clasp": "^3.0.3-alpha",
     "@rollup/plugin-typescript": "^12.1.2",
     "@types/google-apps-script": "^1.0.97",
     "@types/node": "^22.15.3",
