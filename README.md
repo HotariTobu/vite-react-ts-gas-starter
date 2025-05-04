@@ -1,54 +1,57 @@
-# React + TypeScript + Vite
+# Vite React TypeScript Google Apps Script Starter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a starter template for building [Google Apps Script (GAS)](https://developers.google.com/apps-script) projects using [Vite](https://vitejs.dev/), [React](https://reactjs.org/), [TypeScript](https://www.typescriptlang.org/), and [@google/clasp](https://github.com/google/clasp). It provides a modern development environment with features like hot module replacement (HMR), TypeScript support, and easy push to Google Apps Script.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `public/`: Contains static files like `appsscript.json` and other assets.
+- `src/`: Contains the main application code.
+  - `*/index.html`: Client-side entry files.
+  - `index.ts`: Server-side entry script.
+- `build.ui.mjs`: Script to build UI files for GAS.
+- `rollup.config.ts`: Rollup configuration for bundling server-side files.
+- `vite.config.ts`: Vite configuration for bundling client-side files.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Setup
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Create `.clasp.json`:
+   ```bash
+   npx ncp .clasp.example.json .clasp.json
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. (If it does not exist) Create a GAS project
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. Replace `<SCRIPT_ID>` in `.clasp.json`
+
+### Development
+
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+1. Access [localhost:5173/<HTML_DIR>/]( http://localhost:5173/<HTML_DIR>/) (e.g. `<HTML_DIR> = dialog`)
+
+### Push to Google Apps Script
+
+1. Authenticate with Google Apps Script:
+   ```bash
+   clasp login
+   ```
+
+2. Push the code to your Apps Script project:
+   ```bash
+   npm run push
+   ```
+
+3. Open the Apps Script editor:
+   ```bash
+   npm run open
+   ```
