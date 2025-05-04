@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "rimraf dist && tsc -b && npm run build:script && npm run build:ui && ncp public dist",
+    "build:script": "rollup --no-treeshake -c rollup.config.ts",
+    "build:ui": "node build.ui.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
