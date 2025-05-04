@@ -1,11 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import { viteSingleFile } from 'vite-plugin-singlefile'
 import { globSync } from 'node:fs'
 import path from 'node:path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), viteSingleFile()],
+
   root: path.resolve(__dirname, 'src'),
   publicDir: path.resolve(__dirname, 'public'),
 
