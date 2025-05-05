@@ -41,9 +41,9 @@ This project is a starter template for building [Google Apps Script (GAS)](https
 
 ### Push to Google Apps Script
 
-1. Authenticate with Google Apps Script:
+1. (Only the first )Authenticate with Google Apps Script:
    ```bash
-   clasp login
+   npx clasp login
    ```
 
 2. Push the code to your Apps Script project:
