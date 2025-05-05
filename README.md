@@ -55,3 +55,7 @@ This project is a starter template for building [Google Apps Script (GAS)](https
    ```bash
    npm run open
    ```
+
+## Acknowledgments
+
+- [vite-plugin-singlefile](https://github.com/richardtallent/vite-plugin-singlefile)
